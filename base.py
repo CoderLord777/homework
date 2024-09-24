@@ -13,8 +13,4 @@ else:
 print("4th program")
 a= '123.456'
 print(a[-3])
-a=float(a)
-a*=10
-print(a)
-a=int(a)
-print(a//10)
+print(int(float(a*10%10)))
