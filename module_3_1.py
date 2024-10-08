@@ -17,14 +17,10 @@ def is_contains(string, list_to_search):
     string = str(string).lower()
     list_to_search = list(list_to_search)
     count_calls()
-    for i in range(len(list_to_search)):
-        if str(list_to_search[i]).lower() == string:
-            vozvrat = True
-            break
-        else:
-            vozvrat = False
-            continue
-    return (vozvrat)
+    for item in list_to_search:
+        if str(item).lower() == string:
+            return True
+    return False
 
 
 print(string_info('Dlinna stroki s raznymi registrami'))
