@@ -4,6 +4,7 @@ dist = int(len(my_list))
 while dist > 0:
     if my_list[i] < 0:
         break
-    print(my_list[i])
+    if my_list[i]!=0:
+        print(my_list[i])
     dist -= 1
     i += 1
