@@ -1,5 +1,5 @@
 class Vehicle:
-    __COLOR_VARIANTS = ['Аустер', 'Гейзер', 'Индиго', '	Лагуна', 'Лазурь']
+    __COLOR_VARIANTS = ['Аустер', 'Гейзер', 'Индиго', 'Лагуна', 'Лазурь']
 
     def __init__(self, owner: str, __model: str, __engine_power: int, __color: str):
         self.owner = owner
