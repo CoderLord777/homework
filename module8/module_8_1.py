@@ -3,7 +3,7 @@ def add_everything_up(a, b):
         res = a + b
         if isinstance(res, (int, float)):
             return round(res, 3)
-    except TypeError as exc:
+    except TypeError:
         if isinstance(a, str):
             return a + str(b)
         else:
