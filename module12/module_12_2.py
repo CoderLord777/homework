@@ -1,6 +1,16 @@
 import unittest
 from runner_and_tournament import Tournament, Runner
+def is_frozen(val)->bool:
+    def decorator(cls):
+        if val:
+            for attr_name in dir(cls):
+                if attr_name.startswith('test_'):
+                    attr = getattr(cls, attr_name)
+                    setattr(cls, attr_name, unittest.skip('Тесты в этом кейсе заморожены')(attr))
+        return cls
+    return decorator
 
+@is_frozen(True)
 
 class TournamentTest(unittest.TestCase):
     @classmethod

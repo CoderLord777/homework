@@ -1,7 +1,17 @@
 import unittest
 from runner import Runner
 
+def is_frozen(val)->bool:
+    def decorator(cls):
+        if val:
+            for attr_name in dir(cls):
+                if attr_name.startswith('test_'):
+                    attr = getattr(cls, attr_name)
+                    setattr(cls, attr_name, unittest.skip('Тесты в этом кейсе заморожены')(attr))
+        return cls
+    return decorator
 
+@is_frozen(False)
 class RunnerTest(unittest.TestCase):
     def test_walk(self):
         runner_test = Runner('Bolt')
