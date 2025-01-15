@@ -13,19 +13,17 @@ def introspection_info(obj):
         'methods': []
     }
 
-    # Separate attributes and methods
     for attr in dir(obj):
         if callable(getattr(obj, attr)):
             info['methods'].append(attr)
         else:
             info['attributes'].append(attr)
 
-    # Add additional interesting properties if available
     if hasattr(obj, '__doc__'):
         info['doc'] = obj.__doc__.strip() if obj.__doc__ else None
 
     return info
 
-# Example usage
+
 number_info = introspection_info(42)
 print(number_info)
